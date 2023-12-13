@@ -1,23 +1,17 @@
 'use client'
 
+
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
+
+
 
 
 import type { Product } from './types';
 import { useGetCardsQuery } from '@/shared/api/cardsApiSlice'
 import { BodyCards } from '@/entities/bodyCards'
 import { addToCart } from '../../features/AddToCart/cartSlice';
-
-
-
-
-
-
-
-
-
 
 
 const Catalog = () => {
@@ -29,9 +23,11 @@ const Catalog = () => {
   const pages = [1,2,3,4,5];
 
   const dispatch = useDispatch();
+ 
 
-  const handleAddToCart = (product: Product) => {
-    dispatch(addToCart(product)); 
+  const handleAddToCart =  (product: Product) => {
+    dispatch(addToCart(product));
+    
   };
  
   return (
