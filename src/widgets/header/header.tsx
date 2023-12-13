@@ -12,11 +12,12 @@ const Header = () => {
             </div>
 
             <div className="flex justify-between">
-                <div className="px-5">
-                    <h1>()</h1>
+                <div className="">
+                    <button className='cursor-pointer'>()</button>
                 </div>
-                <div className="px-5">
-                    <h1>[]</h1>
+
+                <div className="ml-2">
+                    <button>[]</button>
                 </div>
             </div>
 

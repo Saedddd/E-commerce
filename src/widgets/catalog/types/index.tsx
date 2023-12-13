@@ -1,14 +1,11 @@
-export interface IData {
-        limit: number;
-        products: Array<{
-          brand: string;
-          desc: string;
-          id: number;
-          price: number;
-          rating: number;
-          title: string;
-          images?: any;
-        }>;
-        skip: number;
-        total: number;
-      }
+export interface Product {
+  cartQuantity: number;
+  title: string;
+  image?: any; 
+  brand: string;
+  price: number;
+  rating: number;
+  desc: string;
+  id: number;
+  onAddToCart: (product: Product) => void;
+}

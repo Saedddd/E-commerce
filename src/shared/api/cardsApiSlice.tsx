@@ -10,7 +10,7 @@ export const cardsApi = createApi({
     baseUrl: "https://dummyjson.com/",
   }),
   endpoints: (builder) => ({
-    getCards: builder.query<IData, number | void>({
+    getCards: builder.query<IData, any | void>({
       query: (page = 1, limit = 6) => `products?limit=12&skip=${page * limit}`,
     }),
   }),

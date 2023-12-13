@@ -1,8 +1,43 @@
 import React from 'react'
-import { ICard } from './types'
 
-const BodyCards = ({title, image, brand, price, rating, desc}: ICard) => {
-  console.log(image)
+
+
+// addToCart
+
+
+interface Product {
+  title: string;
+  image: any;
+  brand: string;
+  price: number;
+  rating: number;
+  desc: string;
+  id: number;
+}
+
+interface BodyCardsProps {
+  title: string;
+  image: any;
+  brand: string;
+  price: number;
+  rating: number;
+  desc: string;
+  id: number;
+  onAddToCart: (product: Product) => void;
+}
+
+    const BodyCards: React.FC<BodyCardsProps> = ({
+      title,
+      image,
+      brand,
+      price,
+      rating,
+      desc,
+      id,
+      onAddToCart,
+    }) => {
+      
+
   return (
     <div className='mb-5'>
     
@@ -24,11 +59,13 @@ const BodyCards = ({title, image, brand, price, rating, desc}: ICard) => {
 
               <div className="flex justify-end mt-3">
                 <div className="">
-                    <p>()</p>
+                  <button>Like</button>
                 </div>
-
                 <div className="ml-2">
-                    <p>[]</p>
+                  <button onClick={() => onAddToCart({ title, image, brand, price, rating, desc, id })}>
+                    Add
+                  </button>
+                  
                 </div>
               </div>
             </div>
