@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import React from 'react'
+import { FcLike } from 'react-icons/fc';
+import { IoCartOutline } from 'react-icons/io5';
 
 
 
@@ -59,12 +62,12 @@ interface BodyCardsProps {
 
               <div className="flex justify-end mt-3">
                 <div className="">
-                  <button>Like</button>
+                  <FcLike size={25}/>
                 </div>
                 <div className="ml-2">
-                  <button onClick={() => onAddToCart({ title, image, brand, price, rating, desc, id })}>
-                    Add
-                  </button>
+                    <button onClick={() => onAddToCart({ title, image, brand, price, rating, desc, id })}>
+                      <IoCartOutline size={25}/>
+                    </button>
                   
                 </div>
               </div>

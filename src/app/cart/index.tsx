@@ -3,10 +3,11 @@ import React from 'react'
 import { Header } from '@/widgets/header'
 import { Footer } from '@/widgets/footer'
 
-const Cart = () => {
+function Cart() {
   return (
     <div>
         <Header />
+        <h1>CArt</h1>
         <Footer />
     </div>
   )
