@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
           <ReduxProvider>
             <Header/>
-            <main className='h-1/2'> {children}</main>
+            <main className='flex flex-col min-h-screen'> {children}</main>
             <Footer/>
           </ReduxProvider>
         </body>
