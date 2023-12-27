@@ -5,6 +5,7 @@ import { setupListeners } from '@reduxjs/toolkit/query/react';
 import { cardsApi } from '@/shared/api/cardsApiSlice';
 import { cartReducer, CartState } from "../../../features/AddToCart/cartSlice"
 
+
 export const store = configureStore({
   reducer: {
     cart: cartReducer,

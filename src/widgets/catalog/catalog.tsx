@@ -12,12 +12,20 @@ const Catalog = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { data, error, isLoading } = useGetCardsQuery(page);
   const pages = [1, 2, 3, 4, 5];
+  const isLastPage = page === pages[pages.length - 1];
 
   const dispatch = useDispatch();
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product:any) => {
     dispatch(addToCart(product));
   };
+
+
+  useEffect(() => {
+    // Сбросить страницу при изменении поискового запроса
+    setPage(1);
+  }, [searchTerm]);
+
 
   return (
     <>
@@ -69,21 +77,23 @@ const Catalog = () => {
 
         </div>
 
-        <div className="flex justify-center mt-auto">
+       <div className="flex justify-center mt-auto">
           <button
-            className="p-4 hover:text-gray-500 duration-100"
+            className={`p-4 hover:text-gray-500 duration-100 ${
+              page === 1 ? 'text-gray-200 hover:text-gray-200' : ''
+            }`}
             onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))}
             disabled={page === 1}
           >
             Previous
           </button>
           <div className="p-4 text-center">
-            {pages.map((pageL, index) => (
+            {pages.map((pageL) => (
               <span
-                key={index}
+                key={pageL}
                 onClick={() => setPage(pageL)}
                 className={`p-1 cursor-pointer hover:text-gray-500  ${
-                  pageL === page ? 'text-gray-200' : null
+                  pageL === page ? 'text-gray-200 hover:text-gray-200' : ''
                 }`}
               >
                 {pageL}
@@ -91,13 +101,17 @@ const Catalog = () => {
             ))}
           </div>
           <button
-            className="p-4 hover:text-gray-500 duration-100"
+            className={`p-4 hover:text-gray-500 duration-100 ${
+              isLastPage ? 'text-gray-200 hover:text-gray-200' : ''
+            }`}
             onClick={() => setPage((prevPage) => prevPage + 1)}
-            disabled={page === pages[pages.length - 1]}
+            disabled={isLastPage}
           >
             Next
           </button>
         </div>
+
+        
       </div>
     </>
   );
