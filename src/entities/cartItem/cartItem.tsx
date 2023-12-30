@@ -1,5 +1,11 @@
 import React from 'react';
+
+
 import { CartItem as CartItemType } from '@/features/AddToCart/types';
+
+
+import { MdDeleteOutline } from "react-icons/md";
+import { IoPricetagOutline } from "react-icons/io5";
 
 interface CartItemProps {
   item: CartItemType;
@@ -8,9 +14,18 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({ item, onRemove }) => {
   return (
-    <li>
-      {item.title} - {item.price} - Quantity: {item.cartQuantity}
-      <button onClick={() => onRemove(item.id)}>Remove</button>
+    <li className='text-xs m-5'>
+      <li>
+        {item.title}
+      </li>
+      <li className='flex'>
+        <IoPricetagOutline size={10} /> {item.price}
+      </li>
+      <li>
+        Quantity: {item.cartQuantity}
+      </li>
+         
+      <button className='m-auto' onClick={() => onRemove(item.id)}><MdDeleteOutline size={20}/></button>
     </li>
   );
 };
