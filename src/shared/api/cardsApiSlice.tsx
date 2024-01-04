@@ -11,11 +11,10 @@ export const cardsApi = createApi({
   }),
   endpoints: (builder) => ({
     getCards: builder.query<IData, any | void>({
-      query: (page = 1, limit = 6) => `products?limit=12&skip=${page * limit}`,
+      query: ({page = 1, limit = 0}) => `products?limit=12&skip=${page * limit}`,
     }),
   }),
 });
 
 
 export const { useGetCardsQuery } = cardsApi;
-

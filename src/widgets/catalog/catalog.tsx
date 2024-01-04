@@ -7,16 +7,20 @@ import { useGetCardsQuery } from '@/shared/api/cardsApiSlice';
 import { BodyCards } from '@/entities/bodyCards';
 import { addToCart } from '../../features/AddToCart/cartSlice';
 
+
+
+
 const Catalog = () => {
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<any>(1);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { data, error, isLoading } = useGetCardsQuery(page);
+  const { data, error, isLoading } = useGetCardsQuery({page:page, limit:16});
   const pages = [1, 2, 3, 4, 5];
   const isLastPage = page === pages[pages.length - 1];
+ 
 
   const dispatch = useDispatch();
 
-  const handleAddToCart = (product:any) => {
+  const handleAddToCart = (product: any) => {
     dispatch(addToCart(product));
   };
 
@@ -27,6 +31,7 @@ const Catalog = () => {
   }, [searchTerm]);
 
 
+ 
   return (
     <>
 
@@ -50,6 +55,7 @@ const Catalog = () => {
             ) : isLoading ? (
               <p>LOADING...</p>
             ) : data ? (
+              
               (() => {
                 const filteredProducts = data.products.filter((product) =>
                   product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -74,43 +80,28 @@ const Catalog = () => {
                 ));
               })()
             ) : null}
+            
 
         </div>
 
-       <div className="flex justify-center mt-auto">
-          <button
-            className={`p-4 hover:text-gray-500 duration-100 ${
-              page === 1 ? 'text-gray-200 hover:text-gray-200' : ''
-            }`}
-            onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))}
-            disabled={page === 1}
-          >
-            Previous
-          </button>
-          <div className="p-4 text-center">
-            {pages.map((pageL) => (
-              <span
-                key={pageL}
-                onClick={() => setPage(pageL)}
-                className={`p-1 cursor-pointer hover:text-gray-500  ${
-                  pageL === page ? 'text-gray-200 hover:text-gray-200' : ''
-                }`}
-              >
-                {pageL}
-              </span>
-            ))}
-          </div>
-          <button
-            className={`p-4 hover:text-gray-500 duration-100 ${
-              isLastPage ? 'text-gray-200 hover:text-gray-200' : ''
-            }`}
-            onClick={() => setPage((prevPage) => prevPage + 1)}
-            disabled={isLastPage}
-          >
-            Next
-          </button>
-        </div>
+    
 
+            <div className="flex justify-center mt-auto">
+            
+              <div className="mx-1 px-3 py-2 rounded-md">
+                {pages.map((pageL) => (
+                  <span
+                    key={pageL}
+                    onClick={() => setPage(pageL)}
+                    className={`mx-1 px-3 py-2 rounded-md cursor-pointer  ${
+                      pageL === page ? 'bg-gray-600 text-white' : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    {pageL}
+                  </span>
+                ))}
+              </div>
+            </div>
         
       </div>
     </>

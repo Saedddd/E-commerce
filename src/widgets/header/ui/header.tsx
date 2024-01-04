@@ -21,7 +21,7 @@ const Header = () => {
 
             <div className="flex justify-between">
                 <div className="">
-                    <Link href='/'>
+                    <Link href='/Favorite'>
                         <FcLike size={25}/>
                     </Link>
                     

@@ -35,13 +35,13 @@ const CartPage: React.FC = () => {
 
           <ul className='w-80'>
 
-          {cartItems.length > 0 ? (
-              cartItems.map((item: any) => (
-                <CartItem key={item.id.toString()} item={item} onRemove={handleRemoveFromCart} />
-              ))
-            ) : (
-              <p className='py-14 text-center '>Cart is empty...</p>
-            )}
+            {cartItems.length > 0 ? (
+                cartItems.map((item: any) => (
+                  <CartItem key={item.id.toString()} item={item} onRemove={handleRemoveFromCart} />
+                ))
+              ) : (
+                <p className='py-14 text-center '>Cart is empty...</p>
+              )}
           </ul>
 
           <button  className="flex m-auto" onClick={handleClearCart}>Clear Cart</button>
@@ -53,3 +53,4 @@ const CartPage: React.FC = () => {
 };
 
 export default CartPage;
+

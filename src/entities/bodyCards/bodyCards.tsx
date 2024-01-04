@@ -5,8 +5,6 @@ import { IoCartOutline } from 'react-icons/io5';
 
 
 
-// addToCart
-
 
 interface Product {
   title: string;
