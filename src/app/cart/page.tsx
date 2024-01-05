@@ -23,7 +23,7 @@ const CartPage: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
         <div className='w-96 h-screen my-14'>
           <h2 className='text-center my-7'>Your Cart</h2>
 

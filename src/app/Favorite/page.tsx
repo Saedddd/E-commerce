@@ -9,8 +9,8 @@ const Favorite = ({ isFavOpen, setIsFavOpen }: IFavorite) => {
   const cards = useSelector((state: RootState) => state.favorite);
   console.log(cards);
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="">
+    <div className="flex items-center justify-center h-screen ">
+      <div className="w-96">
         <h4 className="text-center text-black font-bold">Favourite:</h4>
         {cards && cards.favorite && cards.favorite.length > 0 ? (
           cards.favorite.map((fav: any) => (

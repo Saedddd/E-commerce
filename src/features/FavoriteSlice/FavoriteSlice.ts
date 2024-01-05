@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { toast } from 'react-toastify';
 
 interface FavoriteState {
   favorite: any[]; 
@@ -13,10 +14,13 @@ const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addToFav: (state, action: PayloadAction<any>) => {
+
+      
       return{
         ...state,
         favorite: [...state.favorite, action.payload],
       }
+      
     },
     removeFromFav: (state, action: PayloadAction<number>) => {
       state.favorite = state.favorite.filter((obj) => obj.id !== action.payload);
