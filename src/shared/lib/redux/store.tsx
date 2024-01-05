@@ -1,5 +1,3 @@
-// ваш файл с настройкой хранилища
-
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
 import { cardsApi } from '@/shared/api/cardsApiSlice';

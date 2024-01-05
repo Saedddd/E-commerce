@@ -1,11 +1,11 @@
-
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface FavoriteState {
   favorite: any[]; 
 }
 const initialState: FavoriteState = {
-  favorite: [],
+  favorite: [
+  ],
 };
 
 const favoriteSlice = createSlice({
@@ -13,7 +13,10 @@ const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addToFav: (state, action: PayloadAction<any>) => {
-      state.favorite.push(action.payload);
+      return{
+        ...state,
+        favorite: [...state.favorite, action.payload],
+      }
     },
     removeFromFav: (state, action: PayloadAction<number>) => {
       state.favorite = state.favorite.filter((obj) => obj.id !== action.payload);
