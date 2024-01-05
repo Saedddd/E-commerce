@@ -62,7 +62,7 @@ interface BodyCardsProps {
                 </div>
                 <div className="flex justify-end mt-3">
                   <div className="">
-                    {/* Исправлено: вызов addToFavorite в onClick */}
+
                     <button onClick={addToFavorite}>
                       <FcLike size={25} />
                     </button>
