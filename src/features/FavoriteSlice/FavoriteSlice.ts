@@ -1,39 +1,26 @@
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '@reduxjs/toolkit/query';
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
-export interface FavoriteItem {
-  id: number;
-  title: string;
-  price: number;
-  brand: string;
-  rating: number;
-  desc: string;
+interface FavoriteState {
+  favorite: any[]; 
 }
-
-export interface FavoritesState {
-  favoriteItems: FavoriteItem[];
-}
-
-const initialState: FavoritesState = {
-  favoriteItems: [],
+const initialState: FavoriteState = {
+  favorite: [],
 };
 
-const favoritesSlice = createSlice({
-  name: 'favorites',
+const favoriteSlice = createSlice({
+  name: 'favorite',
   initialState,
   reducers: {
-    addToFavorites: (state, action: PayloadAction<FavoriteItem>) => {
-      state.favoriteItems.push(action.payload);
+    addToFav: (state, action: PayloadAction<any>) => {
+      state.favorite.push(action.payload);
     },
-    removeFromFavorites: (state, action: PayloadAction<number>) => {
-      state.favoriteItems = state.favoriteItems.filter((item) => item.id !== action.payload);
+    removeFromFav: (state, action: PayloadAction<number>) => {
+      state.favorite = state.favorite.filter((obj) => obj.id !== action.payload);
     },
   },
 });
 
-export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
-export const favoritesReducer = favoritesSlice.reducer;
+export const { addToFav, removeFromFav } = favoriteSlice.actions;
 
-export const selectFavoriteItems = (state: RootState) => state.favorites.favoriteItems;
+export const favReducer = favoriteSlice.reducer;

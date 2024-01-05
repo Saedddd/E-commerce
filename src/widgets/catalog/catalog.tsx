@@ -15,7 +15,7 @@ const Catalog = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const { data, error, isLoading } = useGetCardsQuery({page:page, limit:16});
   const pages = [1, 2, 3, 4, 5];
-  const isLastPage = page === pages[pages.length - 1];
+
  
 
   const dispatch = useDispatch();
