@@ -3,32 +3,14 @@ import React from 'react'
 import { FcLike } from 'react-icons/fc';
 import { IoCartOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux'
+import { BodyCardsProps } from './types';
 
 import { addToFav, removeFromFav } from '@/features/FavoriteSlice/FavoriteSlice';
 
 
 
 
-interface Product {
-  title: string;
-  image: any;
-  brand: string;
-  price: number;
-  rating: number;
-  desc: string;
-  id: number;
-}
 
-interface BodyCardsProps {
-  title: string;
-  image: any;
-  brand: string;
-  price: number;
-  rating: number;
-  desc: string;
-  id: number;
-  onAddToCart: (product: Product) => void;
-}
 
     const BodyCards: React.FC<BodyCardsProps> = ({
       title,

@@ -28,8 +28,8 @@ const CartPage: React.FC = () => {
           <h2 className='text-center my-7'>Your Cart</h2>
 
             <div className="flex justify-center">
-                <p className='px-5'>Total Quantity: {cartItems.reduce((total, item) => total + item.cartQuantity, 0)}</p>
-                <p className='px-5'>Total Amount: {cartItems.reduce((total, item) => total + item.price * item.cartQuantity, 0)}</p>
+                <p className='px-5'>Total Quantity: {cartItems.reduce((total: any, item: { cartQuantity: any; }) => total + item.cartQuantity, 0)}</p>
+                <p className='px-5'>Total Amount: {cartItems.reduce((total: number, item: { price: number; cartQuantity: number; }) => total + item.price * item.cartQuantity, 0)}</p>
             </div>
                 
 

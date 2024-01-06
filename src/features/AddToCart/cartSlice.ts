@@ -1,19 +1,9 @@
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { RootState } from '@/shared/lib/redux/store';
+import { CartState, CartItem } from './types';
 
-export interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-  cartQuantity: number;
-}
 
-export interface CartState {
-  cartItems: CartItem[];
-  cartTotalQuantity: number;
-  cartTotalAmount: number;
-}
 
 const initialState: CartState = {
   cartItems: [],
