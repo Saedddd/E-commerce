@@ -14,7 +14,7 @@ const Favorite = ({ isFavOpen, setIsFavOpen }: IFavorite) => {
         <h4 className="text-center text-black font-bold">Favourite:</h4>
         {cards && cards.favorite && cards.favorite.length > 0 ? (
           cards.favorite.map((fav: any) => (
-           <FavoriteItem key={fav.id} id={fav.id} title={fav.title} price={fav.price} image={fav.images} />
+            <FavoriteItem key={fav.id} id={fav.id} title={fav.title} price={fav.price} image={fav.images} quantity={fav.quantity} />
           ))
         ) : (
           <p className="text-center text-black">No favorites yet.</p>

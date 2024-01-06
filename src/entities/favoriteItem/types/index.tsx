@@ -3,4 +3,5 @@ export interface IFavorite{
     title:string;
     price:number;
     image:string;
+    quantity:number;
 }

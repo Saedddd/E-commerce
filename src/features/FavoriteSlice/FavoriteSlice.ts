@@ -14,12 +14,38 @@ const favoriteSlice = createSlice({
   initialState,
   reducers: {
     addToFav: (state, action: PayloadAction<any>) => {
+      const existingProductIndex = state.favorite.findIndex((product) => product.id === action.payload.id);
 
+      if (existingProductIndex >= 0) {
       
-      return{
-        ...state,
-        favorite: [...state.favorite, action.payload],
+        state.favorite[existingProductIndex].quantity += 1;
+        toast.info(`The number of ${action.payload.title} in the favorite has increased!`, {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+     
+        const tempProduct = { ...action.payload, quantity: 1 };
+        state.favorite.push(tempProduct);
+        toast.success(`${action.payload.title} added to favorites!`, {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        
       }
+      
+    
+      return state;
       
     },
     removeFromFav: (state, action: PayloadAction<number>) => {

@@ -3,7 +3,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { removeFromFav } from "@/features/FavoriteSlice/FavoriteSlice";
 
-const FavoriteItem = ({ id, title, price, image }: IFavorite) => {
+const FavoriteItem = ({ id, title, price, image, quantity }: IFavorite) => {
   const dispatch = useDispatch();
 
   const removeFromFavorite = () => dispatch(removeFromFav(id));
@@ -16,6 +16,7 @@ const FavoriteItem = ({ id, title, price, image }: IFavorite) => {
       <div className='pl-5 flex flex-col justify-center'>
         <p className='text-black font-bold text-xl mb-1'>{title}</p>
         <p className='text-black font-bold'>Price: ${price}</p>
+        <p className='text-black font-bold'>Quantity: {quantity}</p>
       </div>
       <button className="" onClick={removeFromFavorite}>
         <MdDeleteOutline size={20} className="text-red-500" />
