@@ -10,7 +10,7 @@ import { GoSignIn } from "react-icons/go";
 const Header = () => {
   return (
     <div className='bg-gray-600 h-12 '>
-        <div className="flex justify-between max-w-5xl m-auto py-3 ">
+        <nav className="flex justify-between max-w-5xl m-auto py-3 ">
 
             <div className="">
                 <Link href={'/'}>
@@ -42,7 +42,7 @@ const Header = () => {
                 
             </div>
 
-        </div>
+        </nav>
     </div>
   )
 }
