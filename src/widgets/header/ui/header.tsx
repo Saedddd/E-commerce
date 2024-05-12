@@ -9,17 +9,17 @@ import { GoSignIn } from "react-icons/go";
 
 const Header = () => {
   return (
-    <div className='bg-gray-600 h-12 '>
-        <nav className="flex justify-between max-w-5xl m-auto py-3 ">
+    <nav className='bg-gray-600 h-12 '>
+        <ul className="flex justify-between max-w-5xl m-auto py-3 ">
 
-            <div className="">
+            <li className="">
                 <Link href={'/'}>
                     <h1 className='items-center'>Saed</h1>
                 </Link>
                 
-            </div>
+            </li>
 
-            <div className="flex justify-between">
+            <li className="flex justify-between">
                 <div className="">
                     <Link href='/Favorite'>
                         <FcLike size={25}/>
@@ -33,17 +33,17 @@ const Header = () => {
                     </Link>
                     
                 </div>
-            </div>
+            </li>
 
-            <div className="">
+            <li className="">
                 <Link href={'/'}>
                     <GoSignIn size={25}/>
                 </Link>
                 
-            </div>
+            </li>
 
-        </nav>
-    </div>
+        </ul>
+    </nav>
   )
 }
 
