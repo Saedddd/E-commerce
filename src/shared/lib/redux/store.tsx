@@ -17,7 +17,7 @@ export const store = configureStore({
 setupListeners(store.dispatch);
 
 export type RootState = {
-  favorite: any;
+  favorite: number;
   favReducer: any;
   cart: CartState;
   [cardsApi.reducerPath]: ReturnType<typeof cardsApi.reducer>;
